@@ -431,7 +431,8 @@ button:active {
     text-align: right;
     font-size: var(--text-xs);
     color: var(--text-muted);
-    padding-top: 1.5rem;
+    /* Match the x-axis height + margin */
+    padding-top: calc(var(--text-xs) + var(--space-xs) + var(--space-xs));
     min-width: 2.5rem;
     font-variant-numeric: tabular-nums;
     font-family: var(--font-body);
@@ -444,6 +445,7 @@ button:active {
     align-items: center;
     justify-content: flex-end;
     height: var(--week-box-size);
+    line-height: 1;
 }
 
 /* Calendar Container */
@@ -464,6 +466,8 @@ button:active {
     color: var(--text-muted);
     text-align: center;
     opacity: 0.6;
+    height: var(--text-xs);
+    line-height: 1;
 }
 
 .x-axis span {
