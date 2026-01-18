@@ -240,6 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 weekBox.addEventListener('mousemove', moveTooltip);
                 weekBox.addEventListener('mouseleave', hideTooltip);
 
+                // Touch support for mobile tooltips
+                weekBox.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    showTooltip(e.touches[0], e.target.dataset.tooltip);
+                }, { passive: false });
+
                 yearRow.appendChild(weekBox);
             }
             fragment.appendChild(yearRow);

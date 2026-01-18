@@ -731,8 +731,34 @@ button:active {
     }
 
     .calendar-container {
-        min-width: 600px;
+        min-width: 800px;
         /* Force horizontal scroll on small screens */
+    }
+
+    /* Larger week boxes for mobile readability */
+    .year-row {
+        grid-auto-rows: 18px;
+        min-height: 18px;
+    }
+
+    .life-grid .week-box {
+        min-width: 12px;
+    }
+
+    /* Disable hover zoom on touch devices */
+    .life-grid .week-box:hover {
+        transform: none;
+    }
+
+    /* Position tooltip at bottom for touch devices */
+    .tooltip {
+        position: fixed;
+        bottom: 20px;
+        left: 50% !important;
+        top: auto !important;
+        transform: translateX(-50%);
+        max-width: 90vw;
+        text-align: center;
     }
 }
 
