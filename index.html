@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Life Calendar</h1>
+            <p class="subtitle">Visualize your life in weeks</p>
+            <p class="subtitle">This site is not meant to make you feel depressed or sad, on the contrary, the purpose
+                is to make you enjoy every moment you are alive!</p>
+        </header>
+
+        <section class="controls">
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <!-- Custom container to control icon -->
+                <div class="date-input-wrapper">
+                    <input type="date" id="dob" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="expectancy">Expected Years</label>
+                <div class="custom-number-input">
+                    <button id="btn-minus" class="pm-btn" aria-label="Decrease years">&minus;</button>
+                    <input type="number" id="expectancy" value="70" min="1" max="150" required>
+                    <button id="btn-plus" class="pm-btn" aria-label="Increase years">&plus;</button>
+                </div>
+            </div>
+            <!-- Generate button removed for dynamic auto-update -->
+            <div class="input-group">
+                <label>&nbsp;</label>
+                <button id="export-btn" class="secondary-btn">Export to CSV</button>
+            </div>
+            <div id="feedback-message" class="feedback-message"></div>
+        </section>
+
+        <section class="legend">
+            <div class="legend-item">
+                <div class="week-box-legend past"></div>
+                <span>Past</span>
+            </div>
+            <div class="legend-item">
+                <div class="week-box-legend current"></div>
+                <span>Current Week</span>
+            </div>
+            <div class="legend-item">
+                <div class="week-box-legend future"></div>
+                <span>Future</span>
+            </div>
+        </section>
+
+        <section class="stats" id="stats" style="display: none;">
+            <div class="stats-container">
+                <div class="stat-box lived">
+                    <h4>Time Lived</h4>
+                    <div class="time-display" id="time-lived-display">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="stat-box left">
+                    <h4>Time Left</h4>
+                    <div class="time-display" id="time-left-display">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-sentences" id="summary-sentences">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="lifeline-container">
+                <div class="lifeline-bar">
+                    <div class="lifeline-progress" id="lifeline-progress"></div>
+                </div>
+                <div class="lifeline-labels">
+                    <span id="lifeline-text">0% Lived</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="chart-wrapper">
+            <div class="y-axis" id="y-axis"></div>
+            <div class="calendar-container">
+                <div class="x-axis" id="x-axis"></div>
+                <div class="life-grid" id="life-grid"></div>
+            </div>
+        </div>
+
+        <section class="donation-section" id="donation-section">
+            <div class="donation-card">
+                <h3>Support the Project</h3>
+                <p>If you find this tool valuable, contributions are welcome but never expected.</p>
+                <a id="donate-btn" href="#" target="_blank" class="revolut-btn">
+                    <span class="secure-icon">🔒</span> Donate Securely
+                </a>
+                <p class="crypto-note">Securely processed by Revolut. No personal data is stored here.</p>
+            </div>
+        </section>
+        <div id="custom-tooltip" class="tooltip"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
